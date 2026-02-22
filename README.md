@@ -51,3 +51,90 @@ API ROUTES of controller need to check to hit from postman
 | Shortcut             | Purpose                                                         |
 | -------------------- | --------------------------------------------------------------- |
 | `Ctrl + R, Ctrl + R` | Rename variable/class safely (updates references automatically) |
+
+class library   :  not ui, not configuration, 
+
+assembly?
+
+common project (common folder)
+Email Service :  (which is sending email [Templates] ,from email)
+Templates means HTML page.
+class library ==> 
+interface
+class email (from, to, content,cc,bcc)
+
+
+class library  == lighweight, easy to use, use multiplaces
+
+Clean architecture:
+Domain =  business logic
+Infrastructure,  ==  interface,service [implement interface (business logic)]
+API  =>controller, simple logic
+controller => Iservice  ==>Service  => IRepo  ==> Repo =>Method
+
+web api ==> [controller => Iservice  ==>Service  => IRepo  ==> Repo =>Method]
+
+
+Web API
+ Create Web api project.
+ add packages[core,core.tools,core.sqlserver].
+ Create folder (model, controller, Create a class dbcontext)
+ inside dbcontext we will have only models which represent table.
+ Create a model first and use inside dbcontext.
+ Repository folder 
+ Service folder
+ inside a repository folder and create Interface (name  based on model or requirement)  IemployeeRepositry
+ insde a repository folder and create class same name as interface   employeeRepostiry
+ create methods inside the Iemployee  (interface)  
+ implement all that methods of Iemployee interace inside  emloyeeClass  [Businee logic]
+ inside a service folder we wil create  interface and class.
+ IemployeeService,EmployeeService.
+ Controller folder. created get, post,put ,delete.   we will use service.
+ 
+ employee repository.
+ 50 methods Iemployee interface.
+ employee class have 50 method implemented.
+ 
+ two controller.
+ deparment controller.  [10 methods]  ==>  10  methods  from repository
+ salary controller.  [40 methods]  ==>40  methods  from repository.
+   
+ Add   == > input is employeeModel  => output id bool(success/fail) Create
+ Update   ===> input is employeeModel  => output id bool(success/fail) Update
+ Delete  ==>  input as a employeeid => Delete
+ GetList  =>  nothig => output as a list a employee. Read
+ 
+class libarary  is core project. small project which gives dll and then can use in another project. 
+
+using multiple class libararies and one web api  we can create enterpise level project.
+ if we use single web api:
+ Hard to manage.
+ take much time to load project. [timeout]
+ more conflict.
+ hard to indetify.
+ 
+ 
+ 
+ 
+ mapper   ==>
+ employee  : EmplyeeId,EmployeeName,DepartmentId,Address,Salary
+ class2 = EmplyeeId,EmployeeName,DepartmentId,Address,Salary
+ class1 = EmplyeeId,EmployeeName,DepartmentName,Address,Salary
+ Create another class   ==>output will class1 = Mapper.map<class1>(class2).ignore(column);
+ class1   = call another service  class1.deparmentName=  getdepartmentNamebyId(class2.deparmentId);
+ API return class1 model.
+ 
+ 
+Company working on taxation.
+Common class library. 
+
+If youn want to use any interace  in DI  then you need to register interface with class.
+inside progam.cs file
+builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+
+three approach : Code first,DB first and model first.
+code first  ==>model
+add-migration  ==>we will create.
+dbfist ===>
+scaffold-dbcontext ==>auto create dbcontext as well model same as table in dbcontext.
+model first =>
