@@ -147,6 +147,7 @@ Create interface and service class in Services folder
 Register repository and service in Program.cs using AddScoped
 
 Code First Approach (Web API)
+
 Add required EF Core packages (SqlServer, Tools, Design)
 Create folders: Models, Data, Services, Repositories
 Add ConnectionStrings in appsettings.json
