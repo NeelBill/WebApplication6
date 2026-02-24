@@ -133,10 +133,6 @@ inside progam.cs file
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 
 three approach : Code first,DB first and model first.
-code first  ==>model
-add-migration  ==>we will create.
-dbfist ===>
-
 
 Database First Approach (Web API)
 
@@ -162,5 +158,3 @@ Run update-database
 Create interface and repository class in Repositories folder
 Create interface and service class in Services folder
 Register repository and service in Program.cs using AddScoped
-scaffold-dbcontext ==>auto create dbcontext as well model same as table in dbcontext.
-model first =>
