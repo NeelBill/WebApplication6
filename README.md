@@ -136,5 +136,31 @@ three approach : Code first,DB first and model first.
 code first  ==>model
 add-migration  ==>we will create.
 dbfist ===>
+
+
+Database First Approach (Web API)
+
+Create project
+Add required EF Core packages (SqlServer, Tools, Design)
+Create folders: Models, Services, Repositories
+Add ConnectionStrings in appsettings.json
+Run Scaffold-DbContext "ConnectionString" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context ApplicationDbContext
+Add DbContext in Program.cs using builder.Services.AddDbContext
+Create interface and repository class in Repositories folder
+Create interface and service class in Services folder
+Register repository and service in Program.cs using AddScoped
+
+Code First Approach (Web API)
+Add required EF Core packages (SqlServer, Tools, Design)
+Create folders: Models, Data, Services, Repositories
+Add ConnectionStrings in appsettings.json
+Create model class with properties based on table structure
+Create DbContext class in Data folder with DbSet with model builder method
+Add DbContext in Program.cs using builder.Services.AddDbContext
+Run Add-Migration InitialMigration
+Run update-database
+Create interface and repository class in Repositories folder
+Create interface and service class in Services folder
+Register repository and service in Program.cs using AddScoped
 scaffold-dbcontext ==>auto create dbcontext as well model same as table in dbcontext.
 model first =>
