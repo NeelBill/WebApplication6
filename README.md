@@ -159,3 +159,30 @@ three approach : Code first,DB first and model first.
 | Create interface and service class in Services folder |
 | Register repository and service in Program.cs using AddScoped |
 | -------------------- |
+
+JWT Token
+Json web token   =>
+
+sentisive information (ip address,userid,role)
+role based autorization
+to check current actiove session
+
+setting up : security key  (encoding  it)  using algorith to create tokens
+
+authentication 
+
+refresh token :
+
+authorization
+
+ logged in into the system
+ first check valid user or not(check in database)
+ Generating JWT token  [refresh token] ===>  refresh token store into the database
+ JWT token has less lite time [30min or 1 hr]
+ refresh token  [15 days or 17 days]
+ 
+ JWT 
+  Issuer  : API
+  Audience: UI
+  Key     : "unique and long upto 32 character"
+  expierytime : (in minutes [not required]
